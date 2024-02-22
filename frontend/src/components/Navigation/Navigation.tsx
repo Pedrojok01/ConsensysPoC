@@ -13,7 +13,7 @@ export const Navigation = () => {
 
   return (
     <div className={styles.navigation}>
-      <h2 className={styles.leftNav}>Next.js & MetaMask & Infura Starter</h2>
+      <h2 className={styles.leftNav}>Infura + MetaMask + Linea PoC</h2>
 
       <div className={styles.rightNav}>
         {!hasProvider && (

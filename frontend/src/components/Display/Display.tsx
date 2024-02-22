@@ -6,9 +6,9 @@ export const Display = () => {
   const { wallet } = useMetaMask();
 
   return (
-    <div className={styles.display}>
+    <>
       {wallet.accounts.length > 0 && (
-        <>
+        <div className={styles.display}>
           <div>
             Wallet Accounts: <b>{wallet.accounts[0]}</b>
           </div>
@@ -21,8 +21,8 @@ export const Display = () => {
           <div>
             Numeric ChainId: <b>{formatChainAsNum(wallet.chainId)}</b>
           </div>
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 };

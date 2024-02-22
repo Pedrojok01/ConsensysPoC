@@ -1,6 +1,14 @@
 .metaMaskError {
+  text-align: center;
   height: 36px;
   padding: 16px;
   color: #efefef;
-  background-color: transparent;
+}
+
+.textError {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }

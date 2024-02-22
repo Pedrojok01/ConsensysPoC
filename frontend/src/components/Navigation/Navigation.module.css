@@ -1,0 +1,26 @@
+.navigation {
+  display: inline-flex;
+  justify-content: space-between;
+  height: 36px;
+  padding: 1.5rem 3rem;
+  background-color: #1d1e22;
+  color: #fff;
+}
+
+.leftNav {
+  margin: 0;
+  line-height: 36px;
+  height: 36px;
+  background: linear-gradient(to right, #2bf9f9, #e757fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rightNav {
+  display: inline-flex;
+  color: #ddd;
+  line-height: 36px;
+  height: 36px;
+  gap: 1rem;
+}

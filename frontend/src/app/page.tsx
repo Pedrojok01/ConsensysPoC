@@ -1,6 +1,6 @@
 "use client";
-import styles from "../styles/page.module.css";
 import { Display, MetaMaskError, Navigation } from "@/components";
+import styles from "../styles/page.module.css";
 
 export default function Home() {
   return (

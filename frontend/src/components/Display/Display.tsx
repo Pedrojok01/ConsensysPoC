@@ -1,11 +1,11 @@
-import { useMetaMask } from "@/hooks/useMetaMask";
+import { FC } from "react";
+
+import { useMetaMask, useMintNFT, useFetchNFTs } from "@/hooks";
 import styles from "./Display.module.css";
 import { formatChainAsNum } from "@/utils/format";
-import { useMintNFT } from "@/hooks/useMintNFT";
 import NFTs from "../NFTs/NFTs";
-import { useFetchNFTs } from "@/hooks/useFetchNFTs";
 
-export const Display = () => {
+export const Display: FC = () => {
   const { wallet } = useMetaMask();
   const { MintNFT } = useMintNFT();
   const { fetchNFTs, nfts, isLoading } = useFetchNFTs(

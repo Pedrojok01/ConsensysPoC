@@ -1,3 +1,7 @@
+interface Window {
+  ethereum: any;
+}
+
 type Nfts = {
   name: string;
   description: string;

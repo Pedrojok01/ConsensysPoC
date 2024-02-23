@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { nftContract, IPFS_PROVIDER } from "@/data/config";
+import { NFT_CONTRACT, IPFS_PROVIDER } from "@/data/config";
 import { JsonRpcProvider } from "ethers";
 import { linea, linea_testnet } from "@/data/networks";
 import { Contract } from "ethers";
@@ -47,7 +47,11 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   //   chainId === linea.id ? LINEA_RPC_URL.mainnet : LINEA_RPC_URL.testnet;
   const rpc_url = LINEA_RPC_URL.testnet;
   const provider = new JsonRpcProvider(rpc_url);
-  const contract = new Contract(nftContract.address, nftContract.abi, provider);
+  const contract = new Contract(
+    NFT_CONTRACT.address,
+    NFT_CONTRACT.abi,
+    provider
+  );
 
   try {
     const balance: bigint = await contract.balanceOf(account);

@@ -1,4 +1,4 @@
-import { isDevEnv, supportedChains } from "@/data/config";
+import { isDevEnv, SUPPORTED_CHAINS } from "@/data/config";
 import { linea, linea_testnet } from "@/data/networks";
 import { useState } from "react";
 import { useMetaMask } from "./useMetaMask";
@@ -10,8 +10,8 @@ type UseEnsureNetworkReturnType = {
 
 const network = isDevEnv ? linea_testnet : linea;
 const desiredChainId = isDevEnv
-  ? supportedChains.testnet
-  : supportedChains.mainnet;
+  ? SUPPORTED_CHAINS.testnet
+  : SUPPORTED_CHAINS.mainnet;
 const desiredChainToHex = `0x${desiredChainId.toString(16)}`;
 
 export const useSwitchNetwork = (): UseEnsureNetworkReturnType => {

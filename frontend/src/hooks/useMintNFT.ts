@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { nftContract } from "@/data/config";
+import { NFT_CONTRACT } from "@/data/config";
 import { BrowserProvider, Contract } from "ethers";
 import { useSwitchNetwork } from "./useSwitchNetwork";
 import { useMetaMask } from "./useMetaMask";
@@ -34,15 +34,21 @@ export const useMintNFT = (): UseMintNFTReturnType => {
         const provider = new BrowserProvider(window.ethereum);
         const signer = await provider.getSigner();
         const contract = new Contract(
-          nftContract.address,
-          nftContract.abi,
+          NFT_CONTRACT.address,
+          NFT_CONTRACT.abi,
           signer
         );
 
         const transaction = await contract.safeMint(to);
         await transaction.wait();
       } catch (err) {
-        setErrorMessage((err as Error).message ?? "Failed to mint NFT.");
+        let message: string | undefined;
+        if ((err as any).code === "ACTION_REJECTED") {
+          message = "MetaMask Tx Signature: User denied transaction signature.";
+        }
+        setErrorMessage(
+          message ?? (err as Error).message ?? "Failed to mint NFT."
+        );
       } finally {
         setIsPending(false);
       }

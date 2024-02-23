@@ -1,8 +1,10 @@
-import { useMetaMask } from "@/hooks/useMetaMask";
+import { FC } from "react";
+
+import { useMetaMask } from "@/hooks";
 import { formatAddress } from "@/utils/format";
 import styles from "./Navigation.module.css";
 
-export const Navigation = () => {
+export const Navigation: FC = () => {
   const {
     wallet,
     hasProvider,
@@ -28,7 +30,7 @@ export const Navigation = () => {
         )}
         {window.ethereum?.isMetaMask && wallet.accounts.length > 0 && (
           <button disabled={isConnecting} onClick={disconnectMetaMask}>
-            Diconnect MetaMask
+            Disconnect MetaMask
           </button>
         )}
         {hasProvider && wallet.accounts.length > 0 && (

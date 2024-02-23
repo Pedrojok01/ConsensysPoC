@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <Navigation />
-      <Display />
       <MetaMaskError />
+      <Display />
     </main>
   );
 }

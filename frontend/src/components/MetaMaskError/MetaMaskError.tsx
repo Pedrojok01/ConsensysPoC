@@ -5,15 +5,17 @@ export const MetaMaskError = () => {
   const { error, errorMessage, clearError } = useMetaMask();
 
   return (
-    <div
-      className={styles.metaMaskError}
-      style={error ? { backgroundColor: "brown" } : {}}
-    >
+    <>
       {error && (
-        <div className={styles.textError} onClick={clearError}>
-          <strong>Error:</strong> {errorMessage}
+        <div
+          className={styles.metaMaskError}
+          style={error ? { backgroundColor: "brown" } : {}}
+        >
+          <div className={styles.textError} onClick={clearError}>
+            <strong>Error:</strong> {errorMessage}
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 };

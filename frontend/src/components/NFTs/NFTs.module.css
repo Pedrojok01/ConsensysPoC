@@ -1,0 +1,44 @@
+.nftGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.nftItem {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.nftItem:hover {
+  transform: scale(1.01);
+}
+
+.nftImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.nftInfo {
+  padding: 5px 10px 10px 10px;
+  font-size: 13px;
+  background: #f9f9f9;
+  color: #333;
+  flex-grow: 1;
+}
+
+.nftTitle {
+  text-align: center;
+  color: black;
+  font-weight: 700;
+  margin-block: 0 5px;
+  font-size: 16px;
+}

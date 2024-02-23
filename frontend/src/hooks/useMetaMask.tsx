@@ -122,8 +122,8 @@ export const MetaMaskContextProvider = ({ children }: PropsWithChildren) => {
 
   // disconnect MetaMask
   const disconnectMetaMask = () => {
-    clearError();
     setWallet(disconnectedState);
+    clearError();
   };
 
   return (

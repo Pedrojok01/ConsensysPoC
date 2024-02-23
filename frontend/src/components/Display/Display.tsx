@@ -2,10 +2,16 @@ import { useMetaMask } from "@/hooks/useMetaMask";
 import styles from "./Display.module.css";
 import { formatChainAsNum } from "@/utils/format";
 import { useMintNFT } from "@/hooks/useMintNFT";
+import NFTs from "../NFTs/NFTs";
+import { useFetchNFTs } from "@/hooks/useFetchNFTs";
 
 export const Display = () => {
   const { wallet } = useMetaMask();
   const { MintNFT } = useMintNFT();
+  const { fetchNFTs, nfts, isLoading } = useFetchNFTs(
+    wallet.accounts[0],
+    Number(wallet.chainId)
+  );
 
   return (
     <>
@@ -32,8 +38,9 @@ export const Display = () => {
               <button onClick={() => MintNFT(wallet.accounts[0])}>
                 Mint NFTs
               </button>
-              <button>Fetch NFTs</button>
+              <button onClick={fetchNFTs}>Fetch NFTs</button>
             </div>
+            <NFTs nfts={nfts} isLoading={isLoading} />
           </div>
         </div>
       )}

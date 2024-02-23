@@ -43,8 +43,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     );
   }
 
-  const rpc_url =
-    chainId === linea.id ? LINEA_RPC_URL.mainnet : LINEA_RPC_URL.testnet;
+  // const rpc_url =
+  //   chainId === linea.id ? LINEA_RPC_URL.mainnet : LINEA_RPC_URL.testnet;
+  const rpc_url = LINEA_RPC_URL.testnet;
   const provider = new JsonRpcProvider(rpc_url);
   const contract = new Contract(nftContract.address, nftContract.abi, provider);
 

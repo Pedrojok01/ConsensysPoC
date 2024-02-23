@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { nftContract } from "@/data/config";
+import { nftContract, IPFS_PROVIDER } from "@/data/config";
 import { JsonRpcProvider } from "ethers";
 import { linea, linea_testnet } from "@/data/networks";
 import { Contract } from "ethers";
@@ -62,10 +62,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     const uri = await contract.tokenURI(1);
-    const formattedUri = uri.replace(
-      "ipfs://",
-      "https://cloudflare-ipfs.com/ipfs/"
-    );
+    const formattedUri = uri.replace("ipfs://", IPFS_PROVIDER);
 
     const metadataResponse = await fetch(formattedUri);
     if (!metadataResponse.ok) throw new Error("Failed to fetch NFT metadata.");
@@ -79,10 +76,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     // Resolve all promises to get all token IDs
     const tokenIds = await Promise.all(tokenIdPromises);
-    const image = metadata.image.replace(
-      "ipfs://",
-      "https://cloudflare-ipfs.com/ipfs/"
-    );
+    const image = metadata.image.replace("ipfs://", IPFS_PROVIDER);
 
     nfts = tokenIds.map((tokenId) => ({
       ...metadata,

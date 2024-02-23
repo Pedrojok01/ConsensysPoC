@@ -14,3 +14,5 @@ export const nftContract = {
   address: "0x99482d34dD610067b66b0A32Fa3Cf1a512D77b2b", // Replace with your contract address
   abi: ERC721_ABI,
 };
+
+export const IPFS_PROVIDER = "https://cloudflare-ipfs.com/ipfs/";
